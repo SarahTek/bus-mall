@@ -3,33 +3,51 @@ let image1 = document.getElementById('image1');
 let image2 = document.getElementById('image2');
 let image3 = document.getElementById('image3');
 let list = document.getElementById('list');
-let imagesListed= [1,2,3,4,5,6];
+let imageArray= [];
 
 let maxClick= 25;
 let totalClicks= 0;
-let imageArray= [];
+let imagesListed= [];
 
 
-function listedImages(name){
-  this.name = name
-  this.image = `img/bus-mall{name}`;
+function listedImages(name, filePath, timesShown,timesClicked){
+  this.name = name;
+  this.filePath = filePath;
+  this.timesShown = timesShown;
+  this.timesClicked = timesClicked;
+  imageArray.push(this);
 
 }
-new listedImages('bag');
-new listedImages('banana');
-new listedImages('bathroom');
-new listedImages('boots');
-new listedImages('breakfast');
-new listedImages('bubblegum');
-new listedImages('chair');
-new listedImages('cthulhu');
-new listedImages('dog-duck');
-new listedImages('dragon');
-new listedImages('pen');
-new listedImages('scissirs');
-new listedImages('shark');
-new listedImages('sweep');
-new listedImages('tauntaun');
-new listedImages('unicorn');
-new listedImages('water');
-new listedImages('wine');
+
+new listedImages('bag','img/bus-mall/bag.jpg');
+new listedImages('banana','img/bus-mall/banana.jpg');
+new listedImages('bathroom','img/bus-mall/bathroom.jpg');
+new listedImages('boots','img/bus-mall/boots.jpg');
+new listedImages('breakfast','img/bus-mall/breakfast.jpg');
+new listedImages('bubblegum','img/bus-mall/bubblegum.jpg');
+new listedImages('chair','img/bus-mall/chair.jpg');
+new listedImages('cthulhu','img/bus-mall/cthulhu.jpg');
+new listedImages('dog-duck','img/bus-mall/dog-duck.jpg');
+new listedImages('dragon','img/bus-mall/dragon.jpg');
+new listedImages('pen','img/bus-mall/pen.jpg');
+new listedImages('scissirs','img/bus-mall/pet-sweep.jpg');
+new listedImages('shark','img/bus-mall/scissors.jpg');
+new listedImages('sweep','img/bus-mall/shark.jpg');
+new listedImages('tauntaun','img/bus-mall/sweep.jpg');
+new listedImages('unicorn','img/bus-mall/tauntaun.jpg');
+new listedImages('water','img/bus-mall/unicorn.jpg');
+new listedImages('wine','img/bus-mall/water-can.jpg');
+new listedImages('wine','img/bus-mall/wine-glass.jpg');
+
+
+
+function randomImage(){
+  let randomIndex =  Math.floor(Math.random() * imageArray.length);
+}
+
+function imageListed(){
+  
+  for (let i = 0; i < imageArray.length; i++){
+    
+  }
+}
