@@ -1,63 +1,181 @@
 'use script';
+let imageContainer = document.getElementById('container');
+let showResults = document.getElementById('show-results');
 let image1 = document.getElementById('image1');
 let image2 = document.getElementById('image2');
 let image3 = document.getElementById('image3');
-let list = document.getElementById('list');
-let imageArray= [];
 
-let maxClick= 25;
-let totalClicks= 0;
-let imagesListed= [];
+// getting the ul from the DOM to manipulate
+let results = document.getElementById('display-results');
+const imageArray = [];
+let maxClick = 25;
+let totalClicks = 0;
 
-
-function listedImages(name, filePath){
+//constructor function
+function ListedImages(name, filePath = 'jpeg') {
   this.name = name;
-  this.filePath = filePath;
+  this.src = `img/bus-mall/${name}.${filePath}`;
   this.timesShown = 0;
   this.timesClicked = 0;
+  this.votes = 0;
+  this.views = 0;
   imageArray.push(this);
 
 }
+//instantiate
+new ListedImages('bag');
+new ListedImages('bathroom');
+new ListedImages('boots');
+new ListedImages('breakfast');
+new ListedImages('bubblegum');
+new ListedImages('chair');
+new ListedImages('cthulhu');
+new ListedImages('dog-duck');
+new ListedImages('dragon');
+new ListedImages('pen');
+new ListedImages('scissirs');
+new ListedImages('shark');
+new ListedImages('sweep');
+new ListedImages('tauntaun');
+new ListedImages('unicorn');
+new ListedImages('water');
+new ListedImages('wine');
+new ListedImages('wine');
 
-new listedImages('bag','img/bus-mall/bag.jpg');
-new listedImages('bathroom','img/bus-mall/bathroom.jpg');
-new listedImages('boots','img/bus-mall/boots.jpg');
-new listedImages('breakfast','img/bus-mall/breakfast.jpg');
-new listedImages('bubblegum','img/bus-mall/bubblegum.jpg');
-new listedImages('chair','img/bus-mall/chair.jpg');
-new listedImages('cthulhu','img/bus-mall/cthulhu.jpg');
-new listedImages('dog-duck','img/bus-mall/dog-duck.jpg');
-new listedImages('dragon','img/bus-mall/dragon.jpg');
-new listedImages('pen','img/bus-mall/pen.jpg');
-new listedImages('scissirs','img/bus-mall/pet-sweep.jpg');
-new listedImages('shark','img/bus-mall/scissors.jpg');
-new listedImages('sweep','img/bus-mall/shark.jpg');
-new listedImages('tauntaun','img/bus-mall/sweep.jpg');
-new listedImages('unicorn','img/bus-mall/tauntaun.jpg');
-new listedImages('water','img/bus-mall/unicorn.jpg');
-new listedImages('wine','img/bus-mall/water-can.jpg');
-new listedImages('wine','img/bus-mall/wine-glass.jpg');
+console.log(imageArray);
 
-function randomImage(){
-  let randomIndex =  Math.floor(Math.random() * imageArray.length);
+function randomImage() {
+  let randomIndex = Math.floor(Math.random() * imageArray.length);
   return randomIndex;
 }
 
-function getThreeImages(){
-  let leftImage = imageArray[randomImage()];
-  let rightImage = imageArray[randomImage()];
-  let middleImage = imageArray[randomImage()];
-  image1.src = leftImage.filePath;
-  image3.src = rightImage.filePath;
-  image2.src = middleImage.filePath;
-  image1.alt = leftImage.name;
-  image3.alt = rightImage.name;
-  image2.alt = middleImage.name;
-  leftImage.timesShown++;
-  rightImage.timesShown++;
-  middleImage.timesShown++;
+function renderImages() {
+  let uniqueProductIndexes = [];
+
+  while (uniqueProductIndexes.length < 3) {
+    let num = randomImage();
+    while (uniqueProductIndexes.includes(num)) {
+      num = randomImage();
+    }
+    uniqueProductIndexes.push(num);
+  }
+  console.log(uniqueProductIndexes);
+
+  image1.src = imageArray[uniqueProductIndexes[0]].src;
+  image1.alt = imageArray[uniqueProductIndexes[0]].name;
+  imageArray[uniqueProductIndexes[0]].views++;
+
+  image2.src = imageArray[uniqueProductIndexes[1]].src;
+  image2.alt = imageArray[uniqueProductIndexes[1]].name;
+  imageArray[uniqueProductIndexes[1]].views++;
+
+
+  image3.src = imageArray[uniqueProductIndexes[2]].src;
+  image3.alt = imageArray[uniqueProductIndexes[2]].name;
+  imageArray[uniqueProductIndexes[2]].views++;
+
+
 }
-getThreeImages();
+
+renderImages();
+
+
+
+function handleImageClick(event) {
+  totalClicks++;
+  let imagesClicked = event.target.alt;
+
+  console.log(imagesClicked);
+
+  for (let i = 0; i < imageArray.length; i++) {
+    if (imageArray[i].name === imagesClicked)
+      imageArray[i].votes++;
+  }
+}
+renderImages();
+
+if (totalClicks === maxClick){
+  imageContainer.removeEventListener('click', handleImageClick);
+}
+
+
+function handleResults(event) {
+  // maxClick++;
+  // let maxClick = event.target.alt;
+  if (totalClicks === maxClick) {
+    for (let i = 0; i < imageArray.length; i++) {
+      let li = document.createElement('li');
+      li.textContent = `${imageArray[i].name} had ${imageArray[i].votes} votes, and was seen ${imageArray[i].views} times.`;
+      results.appendChild(li);
+    }
+  }
+}
+renderImages();
+
+imageContainer.addEventListener('click', handleImageClick);
+showResults.addEventListener('click', handleResults);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getThreeImages() {
+  //    let getThreeImages = '';
+
+  // while (getThreeImages.length < 3) {
+  //   let num = randomImage();
+  //   while (getThreeImages.includes(num)) {
+  //     num = randomImage();
+  //   }
+  //   getThreeImages.push(num);
+  // }
+  // console.log(getThreeImages);
+
+
+  // let leftImage = imageArray[randomImage()];
+  // let rightImage = imageArray[randomImage()];
+  // let middleImage = imageArray[randomImage()];
+  // image1.src = leftImage.filePath;
+  // image3.src = rightImage.filePath;
+  // image2.src = middleImage.filePath;
+  // image1.alt = leftImage.name;
+  // image3.alt = rightImage.name;
+  // image2.alt = middleImage.name;
+  // leftImage.timesShown++;
+  // rightImage.timesShown++;
+  // middleImage.timesShown++;
+
+// }
+// getThreeImages();
+
+
+
+
+
+
+
+
+
+
+// imageContainer.addEventListener("click", myFunction);
+// imageClicked.addEventListener("click", myFunction);
+// imageClicked.addEventListener("click", myFunction);
+
+// let imgesClicked = image1.addEventListener('click', )
 
 
 
@@ -71,3 +189,7 @@ getThreeImages();
 // function imageListed(){
 
 //   for (let i = 0; i < imageArray.length; i++){
+
+// image1.src = imageArray[uniqueProductIndexes[0]].src;
+// image2.src = imageArray[uniqueProductIndexes[1]].src;
+// image3.src = imageArray[uniqueProductIndexes[2]].src;
