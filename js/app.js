@@ -83,7 +83,7 @@ renderImages();
 
 function handleImageClick(event) {
   totalClicks++;
- console.log(totalClicks);
+  console.log(totalClicks);
   let imagesClicked = event.target.alt;
 
   for (let i = 0; i < imageArray.length; i++) {
@@ -112,6 +112,40 @@ function handleResults() {
   }
 }
 // renderImages();
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Bag', 'Banana', 'Bathroom', 'Boots', 'Breakfast', 'Bubblegum'],
+    datasets: [{
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: 'rgba(255, 99, 132, 0.4)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1,
+      // hoverBorderColor: 'rgba(250, 50, 122, 1)',
+    },
+    {
+      label: '# of Views',
+      data: [17, 15, 5, 2, 4, 6],
+      backgroundColor: 'rgba(153, 102, 255, 0.4)',
+      borderColor: 'rgba(153, 102, 255, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+  
+  //it fits to the box or screen that's put inside of / its a default
+    responsive: true
+  }
+});
+
 
 imageContainer.addEventListener('click', handleImageClick);
 showResults.addEventListener('click', handleResults);
@@ -161,14 +195,3 @@ showResults.addEventListener('click', handleResults);
 // middleImage.timesShown++;
 
 // }
-// getThreeImages();
-
-// let result = randomImage();
-// console.log(result);
-// function imageListed(){
-
-//   for (let i = 0; i < imageArray.length; i++){
-
-// image1.src = imageArray[uniqueProductIndexes[0]].src;
-// image2.src = imageArray[uniqueProductIndexes[1]].src;
-// image3.src = imageArray[uniqueProductIndexes[2]].src;
