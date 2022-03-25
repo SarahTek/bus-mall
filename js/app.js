@@ -36,7 +36,7 @@ new ListedImages('pen');
 new ListedImages('pet-sweep');
 new ListedImages('scissors');
 new ListedImages('shark');
-// new ListedImages('sweep');
+new ListedImages('sweep', 'png');
 new ListedImages('tauntaun');
 new ListedImages('unicorn');
 new ListedImages('water-can');
@@ -140,8 +140,8 @@ const myChart = new Chart(ctx, {
         beginAtZero: true
       }
     },
-  
-  //it fits to the box or screen that's put inside of / its a default
+
+    //it fits to the box or screen that's put inside of / its a default
     responsive: true
   }
 });
