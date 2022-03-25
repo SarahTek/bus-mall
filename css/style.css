@@ -31,3 +31,7 @@ footer{
   text-align: center;
   margin-top: 50px;
 }
+#chart{
+  width: 80%;
+  margin: auto;
+}
