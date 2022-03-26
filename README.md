@@ -1,5 +1,7 @@
 # bus-mall
 Lab: BusMall
+Author = Sarah
+Collaborators = Martha
 Read the document in its entirety before beginning your lab. To view this lab assignment in its own tab, click HERE
 
 Problem Domain
