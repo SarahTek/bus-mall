@@ -1,7 +1,11 @@
 # bus-mall
-Lab: BusMall
-Author = Sarah
-Collaborators = Martha
+## Lab: BusMall
+## Author = Sarah
+## Collaborator = Martha
+
+- Resources = Web Dev Simplifier (You tube)
+- MDN Web Docs
+
 Read the document in its entirety before beginning your lab. To view this lab assignment in its own tab, click HERE
 
 Problem Domain
