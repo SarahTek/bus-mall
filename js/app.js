@@ -5,13 +5,13 @@ let image1 = document.getElementById('image1');
 let image2 = document.getElementById('image2');
 let image3 = document.getElementById('image3');
 
-// getting the ul from the DOM to manipulate
+
 let results = document.getElementById('display-results');
 const imageArray = [];
 let maxClick = 25;
 let totalClicks = 0;
 
-//constructor function
+
 function ListedImages(name, filePath = 'jpg') {
   this.name = name;
   this.src = `img/${name}.${filePath}`;
@@ -20,7 +20,7 @@ function ListedImages(name, filePath = 'jpg') {
 
 }
 
-//instantiate
+
 function showProducts() {
   imageArray.push(new ListedImages('bag'));
   imageArray.push(new ListedImages('bathroom'));
