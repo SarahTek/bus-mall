@@ -2,22 +2,72 @@
   box-sizing: border-box;
 }
 body{
-  background-color: #A6DDFF;
+  background-color: black;
+   background-image: url(https://wallpaperaccess.com/full/1155221.png); 
+  background-size: cover;
+  width: 100%;
 }
 h1{
+  color: rgb(5, 4, 4);
+  width: 100%;
+  font-size: 40px;
   text-align: center;
   margin-bottom: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+   background-size: 200% auto; 
+  color: #fff;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  
 }
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+}
+}
+
 img{
-  width: 200px;
-  height: 200px;
+  float: center;
+  margin: 10px;
+  min-height: 200px;
+  max-height: 220px;
+  border: 2px white solid;
+  padding: 2%;
+
 }
 #imageContainer{
-  display: block;
+  display: block; 
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  margin: auto;
+   width: 50%;  
+  height: 300px;
 }
+
+#select-image {
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  font-size: large;
+
+}
+
 main div{
   padding: 10px;
   width: max-content;
@@ -30,8 +80,39 @@ main div{
 footer{
   text-align: center;
   margin-top: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
 }
 #chart{
   width: 80%;
   margin: auto;
+}
+
+p {
+  animation-duration: 3s;
+  animation-name: slidein; 
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+ul {
+  width: 50%;
+  margin: auto;
+  
+}
+li {
+  
+  margin: 2px 0;
+  color: purple;
+  font-size: 20px;
 }
