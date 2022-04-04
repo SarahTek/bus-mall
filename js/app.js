@@ -70,7 +70,9 @@ function randomImage() {
   return randomIndex;
 }
 
+
 let uniqueProductIndexes = [];
+
 function renderImages() {
 
   while (uniqueProductIndexes.length < 6) {
@@ -80,6 +82,7 @@ function renderImages() {
     }
     uniqueProductIndexes.push(num);
   }
+
 
   let index1 = uniqueProductIndexes.shift();
   let index2 = uniqueProductIndexes.shift();
@@ -143,8 +146,11 @@ function renderChart() {
 
   for (let i = 0; i < imageArray.length; i++) {
     let ListedImages = imageArray[i];
+
     views.push(ListedImages.views); 
     votes.push(ListedImages.votes);
+
+ 
     name.push(ListedImages.name);
   }
   console.log(views);
@@ -161,13 +167,16 @@ function renderChart() {
         label: '# of Votes',
         data: votes,
         backgroundColor: 'rgba(163, 0, 60, 0.4)',
+
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
       },
       {
         label: '# of Views',
         data: views,
+
         backgroundColor: 'rgba(153, 102, 255)',
+
         borderColor: 'rgba(153, 102, 255, 1)',
         borderWidth: 1
       }]
@@ -178,6 +187,7 @@ function renderChart() {
           beginAtZero: true
         }
       },
+
 
       responsive: true
     }
