@@ -28,7 +28,6 @@ h1{
    background-size: 200% auto; 
   color: #fff;
   background-clip: text;
-  /* text-fill-color: transparent; */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
@@ -44,19 +43,19 @@ h1{
 
 img{
   float: center;
-  margin: 10px;
+  margin: 15px;
   min-height: 200px;
   max-height: 220px;
   border: 2px white solid;
-  padding: 2%;
+  padding: 1%;
 
 }
 #imageContainer{
-  display: block; 
+  display: flex; 
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin: auto;
-   width: 50%;  
   height: 300px;
 }
 
@@ -69,6 +68,8 @@ img{
 }
 
 main div{
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   width: max-content;
   border: 2px solid black;
